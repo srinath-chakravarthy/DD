@@ -6,6 +6,7 @@
 namespace dd {
 
     class SlipPlane;
+
     /**
       * Problem domain.
       */

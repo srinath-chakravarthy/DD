@@ -3,6 +3,7 @@
 #include "ddobject.h"
 #include "domain.h"
 #include "slipplane.h"
+#include "pointregistration.h"
 #include "vector2d.h"
 
 namespace dd {
@@ -11,20 +12,16 @@ namespace dd {
       */
     class Point : public DdObject {
     private:
-        Domain * domain;
-        SlipPlane * sPlane;
-        pointContainer::iterator domainIterator;
-        pointContainer::iterator sPlaneIterator;
+        PointRegistration<Domain> domain;
+        PointRegistration<SlipPlane> sPlane;
     public:
-        Point(Domain * domain, SlipPlane * sPlane) {
-            this->domain = domain;
-            this->sPlane = sPlane;
-            this->domainIterator = domain->registerPoint(this);
-            this->sPlaneIterator = sPlane->registerPoint(this);
-        }
-        ~Point() {
-            this->domain->erasePoint(domainIterator);
-        }
+        Point(Domain * domain, SlipPlane * sPlane) :
+            domain(this, domain), sPlane(this, sPlane) { }
+        ~Point() { }
+
+        Domain * getDomain() const { return domain.get(); }
+        SlipPlane * getSlipPlane() const { return sPlane.get(); }
+
         virtual void move();
         virtual void spawn();
         virtual void remove();

@@ -34,6 +34,9 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="dderror.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="ddobject.cpp" />
 		<Unit filename="ddobject.h" />
 		<Unit filename="domain.cpp" />
@@ -41,6 +44,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="point.h" />
 		<Unit filename="pointregistrable.h" />
+		<Unit filename="pointregistration.h" />
 		<Unit filename="slipplane.h" />
 		<Unit filename="vector2d.h" />
 		<Extensions>
