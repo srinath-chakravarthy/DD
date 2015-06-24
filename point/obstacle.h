@@ -12,6 +12,8 @@ namespace dd {
 
         ObstaclePoint(Domain * domain, SlipPlane * sPlane) :
             Point(domain, sPlane) { }
+        ObstaclePoint(Domain * domain, SlipPlane * sPlane, pointContainer::iterator antecedentIt) :
+            Point(domain, sPlane, antecedentIt) { }
 
         virtual bool canMove() const { return false; }
 

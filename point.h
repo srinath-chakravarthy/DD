@@ -15,8 +15,21 @@ namespace dd {
         PointRegistration<Domain> domain;
         PointRegistration<SlipPlane> sPlane;
     public:
+        /**
+         * Registers the point after the given iterator position within the sPlane.
+         */
+        Point(Domain * domain, SlipPlane * sPlane, pointContainer::iterator antecedentIt) :
+            domain(this, domain), sPlane(this, sPlane, antecedentIt) { }
+
+        /**
+         * Register the point to the end of the sPlane.
+         */
         Point(Domain * domain, SlipPlane * sPlane) :
             domain(this, domain), sPlane(this, sPlane) { }
+
+        /**
+         * Destructor
+         */
         ~Point() { }
 
         Domain * getDomain() const { return domain.get(); }

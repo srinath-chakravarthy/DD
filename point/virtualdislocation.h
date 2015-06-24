@@ -14,6 +14,8 @@ namespace dd {
 
         VirtualDislocationPoint(Domain * domain, SlipPlane * sPlane) :
             SourcePoint(domain, sPlane) { }
+        VirtualDislocationPoint(Domain * domain, SlipPlane * sPlane, pointContainer::iterator antecedentIt) :
+            SourcePoint(domain, sPlane, antecedentIt) { }
 
         virtual bool canRemove() const { return false; }
         virtual void remove();

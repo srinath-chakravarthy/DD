@@ -12,6 +12,8 @@ namespace dd {
     public:
         SourcePoint(Domain * domain, SlipPlane * sPlane) :
             Point(domain, sPlane) { }
+        SourcePoint(Domain * domain, SlipPlane * sPlane, pointContainer::iterator antecedentIt) :
+            Point(domain, sPlane, antecedentIt) { }
 
         virtual bool canMove() const { return false; }
 

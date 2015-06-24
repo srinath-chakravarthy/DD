@@ -12,6 +12,8 @@ namespace dd {
 
         DislocationPoint(Domain * domain, SlipPlane * sPlane) :
             Point(domain, sPlane) { }
+        DislocationPoint(Domain * domain, SlipPlane * sPlane, pointContainer::iterator antecedentIt) :
+            Point(domain, sPlane, antecedentIt) { }
 
         virtual bool canMove() const { return true; }
         virtual void move();

@@ -45,6 +45,17 @@ namespace dd {
         }
 
         /**
+         * Default constructor.
+         *
+         * @param point Point to be registered.
+         * @param target Target PointRegistrable object.
+         */
+        PointRegistration(Point * point, T * target, pointContainer::iterator antecedentIt) {
+            this->target = target;
+            this->containerIterator = target->registerPoint(point, antecedentIt);
+        }
+
+        /**
          * Default destructor
          */
         ~PointRegistration() {
