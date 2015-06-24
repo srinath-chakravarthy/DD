@@ -11,7 +11,7 @@ namespace dd {
       * Abstract point class.
       */
     class Point : public DdObject {
-    private:
+    protected:
         PointRegistration<Domain> domain;
         PointRegistration<SlipPlane> sPlane;
     public:
@@ -22,9 +22,12 @@ namespace dd {
         Domain * getDomain() const { return domain.get(); }
         SlipPlane * getSlipPlane() const { return sPlane.get(); }
 
+        virtual bool canMove() const;
         virtual void move();
+        virtual bool canSpawn() const;
         virtual void spawn();
+        virtual bool canRemove() const;
         virtual void remove();
-        virtual Vector2d getForce();
+        virtual Vector2d getForce() { return domain.get()->calculateForce(*this); }
     };
 }

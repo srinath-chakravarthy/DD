@@ -37,12 +37,20 @@
 		<Unit filename="dderror.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="ddobject.cpp" />
 		<Unit filename="ddobject.h" />
 		<Unit filename="domain.cpp" />
 		<Unit filename="domain.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="point.cpp" />
 		<Unit filename="point.h" />
+		<Unit filename="point/dislocation.cpp" />
+		<Unit filename="point/dislocation.h" />
+		<Unit filename="point/obstacle.cpp" />
+		<Unit filename="point/obstacle.h" />
+		<Unit filename="point/source.cpp" />
+		<Unit filename="point/source.h" />
+		<Unit filename="point/virtualdislocation.cpp" />
+		<Unit filename="point/virtualdislocation.h" />
 		<Unit filename="pointregistrable.h" />
 		<Unit filename="pointregistration.h" />
 		<Unit filename="slipplane.h" />

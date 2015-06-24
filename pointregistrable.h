@@ -6,26 +6,35 @@
 namespace dd {
 
     class Point;
+    template <typename T> class PointRegistration;
 
+    /**
+     * Type used for point containers.
+     */
     typedef std::list<Point *> pointContainer;
 
     /**
      * Point registrable object.
-     *
-     * TODO: Hide the public registration process to be Registrable-only.
      */
     class PointRegistrable {
+        template <typename T> friend class PointRegistration;
     protected:
         pointContainer points;
-    public:
 
         /**
-         * Register the given point. This must not
-         * be called outside of PointRegistration.
+         * Register the given point before the given position.
          */
-        virtual pointContainer::iterator registerPoint(Point * p) {
-            points.push_back(p);
-            return --points.end();
+        virtual pointContainer::iterator registerPoint(Point * toRegister,
+                                                       pointContainer::iterator antecedentIt) {
+            points.insert(antecedentIt, toRegister);
+            return --antecedentIt;
+        }
+
+        /**
+         * Register the given point at the end of the container.
+         */
+        pointContainer::iterator registerPoint(Point * p) {
+            return registerPoint(p, points.end());
         }
 
         /**
@@ -35,6 +44,7 @@ namespace dd {
         virtual void erasePoint(pointContainer::iterator it) {
             points.erase(it);
         }
+    public:
     };
 
 }

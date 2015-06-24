@@ -6,6 +6,7 @@
 namespace dd {
 
     class SlipPlane;
+    class Vector2d;
 
     /**
       * Problem domain.
@@ -16,5 +17,6 @@ namespace dd {
     public:
         Domain(int SlipPlaneCount);
         Domain();
+        Vector2d calculateForce(const Point &);
     };
 }
