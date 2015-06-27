@@ -10,10 +10,11 @@ namespace dd {
     class DislocationPoint : public Point {
     public:
 
-        DislocationPoint(Domain * domain, SlipPlane * sPlane) :
-            Point(domain, sPlane) { }
-        DislocationPoint(Domain * domain, SlipPlane * sPlane, pointContainer::iterator antecedentIt) :
-            Point(domain, sPlane, antecedentIt) { }
+        DislocationPoint(Domain * domain, SlipPlane * sPlane, double slipPlanePosition) :
+            Point(domain, sPlane, slipPlanePosition) { }
+        DislocationPoint(Domain * domain, SlipPlane * sPlane,
+                         pointContainer::iterator antecedentIt, double slipPlanePosition) :
+            Point(domain, sPlane, antecedentIt, slipPlanePosition) { }
 
         virtual bool canMove() const { return true; }
         virtual void move();

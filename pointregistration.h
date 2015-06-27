@@ -21,7 +21,7 @@ namespace dd {
         /**
          * Get the registration target.
          */
-        T * get() const { return target; }
+        T * getTarget() const { return target; }
 
         /**
          * Get the registration point.
@@ -58,7 +58,7 @@ namespace dd {
         /**
          * Default destructor
          */
-        ~PointRegistration() {
+        virtual ~PointRegistration() {
             target->erasePoint(containerIterator);
             target = nullptr;
         }

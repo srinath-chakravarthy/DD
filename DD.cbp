@@ -16,6 +16,7 @@
 					<Add option="-Wzero-as-null-pointer-constant" />
 					<Add option="-std=c++11" />
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -25,6 +26,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -53,7 +55,10 @@
 		<Unit filename="point/virtualdislocation.h" />
 		<Unit filename="pointregistrable.h" />
 		<Unit filename="pointregistration.h" />
+		<Unit filename="slipplane.cpp" />
 		<Unit filename="slipplane.h" />
+		<Unit filename="slipsystem.cpp" />
+		<Unit filename="slipsystem.h" />
 		<Unit filename="vector2d.h" />
 		<Extensions>
 			<code_completion />

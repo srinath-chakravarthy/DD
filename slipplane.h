@@ -2,6 +2,7 @@
 
 #include "pointregistrable.h"
 #include "domain.h"
+#include "vector2d.h"
 #include <cmath>
 
 namespace dd {
@@ -9,22 +10,19 @@ namespace dd {
     class SlipPlane : public PointRegistrable {
     private:
         Domain * domain;
-        double xIntercept;
-        double angle;
-        double sin;
-        double cos;
+        SlipSystem * slipSystem;
+        Vector2d origin;
     public:
-        SlipPlane(Domain * domain, double xIntercept, double angle) {
-            this->domain = domain;
-            this->xIntercept = xIntercept;
-            this->angle = angle;
-            this->sin = ::sin(angle);
-            this->cos = ::cos(angle);
-        }
+        SlipPlane(Domain * domain, SlipSystem * slipSystem, Vector2d origin) :
+            domain(domain),
+            slipSystem(slipSystem),
+            origin(origin) { }
 
-        double getXIntercept() { return xIntercept; }
-        double getAngle() { return angle; }
-        double getSin() { return sin; }
-        double getCos() { return cos; }
+        double getAngle() const;
+        double getSin() const;
+        double getCos() const;
+        pointContainer::iterator getEndIterator();
+        Vector2d getOrigin() const;
+        Vector2d getPointPosition(const double & slipPlaneLocation) const;
     };
 }

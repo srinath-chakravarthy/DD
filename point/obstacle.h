@@ -10,10 +10,11 @@ namespace dd {
     class ObstaclePoint : public Point {
     public:
 
-        ObstaclePoint(Domain * domain, SlipPlane * sPlane) :
-            Point(domain, sPlane) { }
-        ObstaclePoint(Domain * domain, SlipPlane * sPlane, pointContainer::iterator antecedentIt) :
-            Point(domain, sPlane, antecedentIt) { }
+        ObstaclePoint(Domain * domain, SlipPlane * sPlane, double slipPlanePosition) :
+            Point(domain, sPlane, slipPlanePosition) { }
+        ObstaclePoint(Domain * domain, SlipPlane * sPlane,
+                      pointContainer::iterator antecedentIt, double slipPlanePosition) :
+            Point(domain, sPlane, antecedentIt, slipPlanePosition) { }
 
         virtual bool canMove() const { return false; }
 

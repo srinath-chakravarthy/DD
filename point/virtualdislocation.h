@@ -12,10 +12,11 @@ namespace dd {
     class VirtualDislocationPoint : public SourcePoint {
     public:
 
-        VirtualDislocationPoint(Domain * domain, SlipPlane * sPlane) :
-            SourcePoint(domain, sPlane) { }
-        VirtualDislocationPoint(Domain * domain, SlipPlane * sPlane, pointContainer::iterator antecedentIt) :
-            SourcePoint(domain, sPlane, antecedentIt) { }
+        VirtualDislocationPoint(Domain * domain, SlipPlane * sPlane, double slipPlanePosition) :
+            SourcePoint(domain, sPlane, slipPlanePosition) { }
+        VirtualDislocationPoint(Domain * domain, SlipPlane * sPlane,
+                                pointContainer::iterator antecedentIt, double slipPlanePosition) :
+            SourcePoint(domain, sPlane, antecedentIt, slipPlanePosition) { }
 
         virtual bool canRemove() const { return false; }
         virtual void remove();

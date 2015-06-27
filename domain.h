@@ -5,7 +5,7 @@
 
 namespace dd {
 
-    class SlipPlane;
+    class SlipSystem;
     class Vector2d;
 
     /**
@@ -13,10 +13,11 @@ namespace dd {
       */
     class Domain : public PointRegistrable {
     private:
-        std::vector<SlipPlane> sPlanes;
+        std::vector<SlipSystem *> sSystems;
     public:
-        Domain(int SlipPlaneCount);
+        Domain(long long SlipPlaneCount);
         Domain();
-        Vector2d calculateForce(const Point &);
+        void addSlipSystem(SlipSystem * ss);
+        void addSlipSystem(const double &, const double &);
     };
 }

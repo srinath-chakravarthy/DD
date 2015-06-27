@@ -1,29 +1,21 @@
 #include "domain.h"
-#include "slipplane.h"
+#include "slipsystem.h"
 #include "dderror.h"
 #include "point.h"
 
 namespace dd {
 
-    Domain::Domain(int sPlaneCount) {
-        this->sPlanes.reserve(sPlaneCount);
+    Domain::Domain(long long slipSystemCount) {
+        this->sSystems.reserve(slipSystemCount);
     }
 
     Domain::Domain() : Domain::Domain(0) { }
 
-    Vector2d Domain::calculateForce(const Point & target) {
-        if(target.getDomain() != this) {
-            DdError::exception("Target is not in this domain.");
-        }
-        Vector2d result;
+    void Domain::addSlipSystem(SlipSystem * slipSystem) {
+        sSystems.push_back(slipSystem);
+    }
 
-        for(Point * p : points) {
-            const Point & currentPoint = *p;
-            if(!currentPoint.equals(target)) {
-                // ...
-            }
-        }
-
-        return result;
+    void Domain::addSlipSystem(const double & angle, const double & mag) {
+        addSlipSystem(new SlipSystem(angle, mag));
     }
 }

@@ -12,35 +12,45 @@ namespace dd {
       */
     class Point : public DdObject {
     protected:
-        PointRegistration<Domain> domain;
-        PointRegistration<SlipPlane> sPlane;
+        PointRegistration<Domain> * domainRegistration;
+        PointRegistration<SlipPlane> * sPlaneRegistration;
+        double slipPlanePosition;
     public:
         /**
          * Registers the point after the given iterator position within the sPlane.
          */
-        Point(Domain * domain, SlipPlane * sPlane, pointContainer::iterator antecedentIt) :
-            domain(this, domain), sPlane(this, sPlane, antecedentIt) { }
+        Point(Domain * domain, SlipPlane * sPlane, pointContainer::iterator antecedentIt,
+              double slipPlanePosition) :
+                  slipPlanePosition(slipPlanePosition) {
+            this->domainRegistration = new PointRegistration<Domain>(this,
+                                                                     domain);
+            this->sPlaneRegistration = new PointRegistration<SlipPlane>(this,
+                                                                        sPlane,
+                                                                        antecedentIt);
+        }
 
         /**
          * Register the point to the end of the sPlane.
          */
-        Point(Domain * domain, SlipPlane * sPlane) :
-            domain(this, domain), sPlane(this, sPlane) { }
+        Point(Domain * domain, SlipPlane * sPlane, double slipPlanePosition) :
+            Point::Point(domain, sPlane, sPlane->getEndIterator(), slipPlanePosition) { }
 
         /**
          * Destructor
          */
-        ~Point() { }
+        virtual ~Point() {
+            delete(domainRegistration);
+            delete(sPlaneRegistration);
+        }
 
-        Domain * getDomain() const { return domain.get(); }
-        SlipPlane * getSlipPlane() const { return sPlane.get(); }
+        Domain * getDomain() const { return domainRegistration->getTarget(); }
+        SlipPlane * getSlipPlane() const { return sPlaneRegistration->getTarget(); }
 
-        virtual bool canMove() const;
+        virtual bool canMove() const = 0;
         virtual void move();
-        virtual bool canSpawn() const;
+        virtual bool canSpawn() const = 0;
         virtual void spawn();
-        virtual bool canRemove() const;
+        virtual bool canRemove() const = 0;
         virtual void remove();
-        virtual Vector2d getForce() { return domain.get()->calculateForce(*this); }
     };
 }
