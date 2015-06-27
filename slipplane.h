@@ -22,6 +22,7 @@ namespace dd {
         double getSin() const;
         double getCos() const;
         pointContainer::iterator getEndIterator();
+        SlipSystem * getSlipSystem() { return slipSystem; }
         Vector2d getOrigin() const;
         Vector2d getPointPosition(const double & slipPlaneLocation) const;
     };

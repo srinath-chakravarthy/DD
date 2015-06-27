@@ -5,8 +5,10 @@
 #include "slipplane.h"
 #include "pointregistration.h"
 #include "vector2d.h"
+#include <string>
 
 namespace dd {
+
     /**
       * Abstract point class.
       */
@@ -16,6 +18,7 @@ namespace dd {
         PointRegistration<SlipPlane> * sPlaneRegistration;
         double slipPlanePosition;
     public:
+
         /**
          * Registers the point after the given iterator position within the sPlane.
          */
@@ -45,6 +48,7 @@ namespace dd {
 
         Domain * getDomain() const { return domainRegistration->getTarget(); }
         SlipPlane * getSlipPlane() const { return sPlaneRegistration->getTarget(); }
+        Vector2d getLocation() const { return getSlipPlane()->getPointPosition(slipPlanePosition); }
 
         virtual bool canMove() const = 0;
         virtual void move();

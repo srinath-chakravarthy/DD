@@ -48,7 +48,8 @@ namespace dd {
          * Default constructor.
          *
          * @param point Point to be registered.
-         * @param target Target PointRegistrable object.
+         * @param target Targ
+        PointRegistration(Poet PointRegistrable object.
          */
         PointRegistration(Point * point, T * target, pointContainer::iterator antecedentIt) {
             this->target = target;

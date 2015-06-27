@@ -6,6 +6,8 @@
 namespace dd {
     /**
       * Stub to be replaced with PETSC vectors.
+      *
+      * TODO: Add move constructor
       */
     class Vector2d : public DdObject {
     public:

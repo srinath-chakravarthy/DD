@@ -2,6 +2,7 @@
 #define SOURCE_H
 
 #include "../point.h"
+#include <string>
 
 namespace dd {
 
@@ -10,6 +11,7 @@ namespace dd {
 
     class SourcePoint : public Point {
     public:
+
         SourcePoint(Domain * domain, SlipPlane * sPlane, double slipPlanePosition) :
             Point(domain, sPlane, slipPlanePosition) { }
         SourcePoint(Domain * domain, SlipPlane * sPlane,

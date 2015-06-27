@@ -36,6 +36,8 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="complex.cpp" />
+		<Unit filename="complex.h" />
 		<Unit filename="dderror.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>

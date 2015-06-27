@@ -6,6 +6,7 @@
 namespace dd {
 
     class SlipSystem;
+    class DislocationPoint;
     class Vector2d;
 
     /**
@@ -18,6 +19,6 @@ namespace dd {
         Domain(long long SlipPlaneCount);
         Domain();
         void addSlipSystem(SlipSystem * ss);
-        void addSlipSystem(const double &, const double &);
+        Vector2d getForceOn(DislocationPoint * point);
     };
 }

@@ -1,8 +1,8 @@
 #include "point.h"
 #include "dderror.h"
+#include <string>
 
 namespace dd {
-
     void Point::move() {
         DdError::exception("Point cannot move.");
     }
