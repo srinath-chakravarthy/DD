@@ -1,13 +1,13 @@
 #include "domain.h"
 #include "slipsystem.h"
-#include "dderror.h"
 #include "point.h"
 #include "vector2d.h"
 #include "point/dislocation.h"
 #include "point/source.h"
 #include <cmath>
 #include "complex.h"
-#include <typeinfo>
+#include "hashedpointregistrable.h"
+#include <string>
 
 namespace dd {
 
@@ -21,6 +21,7 @@ namespace dd {
         sSystems.push_back(slipSystem);
     }
 
+    /*
     Vector2d Domain::getForceOn(DislocationPoint * targetPoint) {
         double thetaz = 1;
         double factor = 70e-3/(8 * 2.0*::asin(1)*(1-.3*.3));
@@ -74,4 +75,6 @@ namespace dd {
 
         return Vector2d(bi.real(), b.imag());
     }
+    */
 }
+

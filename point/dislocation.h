@@ -27,9 +27,6 @@ namespace dd {
         virtual bool canRemove() const { return true; }
         virtual void remove();
 
-        virtual double getBurgersMagnitude() const;
-        virtual Vector2d getBurgersVector() const;
-        virtual Vector2d getForce();
     };
 
 }

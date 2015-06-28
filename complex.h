@@ -14,11 +14,26 @@ namespace dd {
 
         Complex(const double & real, const double & imag) :
             std::complex<double>(real, imag) { }
+
         Complex(const std::complex<double> & comp) :
             Complex(comp.real(), comp.imag()) { }
+
         Complex(const Vector2d & vec);
-        Complex operator*(const double &) const;
-        Complex operator+(const double &) const;
+
+        template <typename T>
+        Complex operator*(const T & val) const;
+
+        template <typename T>
+        Complex operator+(const T & val) const;
+
+        template <typename T>
+        Complex operator-(const T & val) const;
+
+        template <typename T>
+        Complex operator/(const T & val) const;
+
+        Complex operator-() const;
+
         double abs() const;
         Complex conjugate() const;
     };

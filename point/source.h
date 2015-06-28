@@ -5,7 +5,6 @@
 #include <string>
 
 namespace dd {
-
     class Domain;
     class SlipPlane;
 

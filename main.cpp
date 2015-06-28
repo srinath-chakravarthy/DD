@@ -7,10 +7,19 @@
 #include <iostream>
 #include "point/dislocation.h"
 #include "point/source.h"
+#include <string>
+#include <list>
+#include "hashedpointregistrable.h"
+#include "complex.h"
 
 using namespace dd;
+typedef long long ll;
 
 int main() {
+
+
+    /*
+
     Domain d(1);
     SlipSystem s(2. * asin(1) / 6, .25e-3);
     d.addSlipSystem(&s);
@@ -28,5 +37,9 @@ int main() {
     DislocationPoint disloc0(&d, &sp1, 1);
     DislocationPoint disloc1(&d, &sp2, 2);
 
-    std::cout << disloc0.getForce().x << " " << disloc0.getForce().y << "\n";
+    std::cout << disloc0.getTypeName() << "\n"; */
+
+
+    //std::cout << disloc0.getForce().x << " " << disloc0.getForce().y << "\n";
+
 }

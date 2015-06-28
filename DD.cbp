@@ -44,6 +44,8 @@
 		<Unit filename="ddobject.h" />
 		<Unit filename="domain.cpp" />
 		<Unit filename="domain.h" />
+		<Unit filename="hashedpointregistrable.cpp" />
+		<Unit filename="hashedpointregistrable.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="point.cpp" />
 		<Unit filename="point.h" />

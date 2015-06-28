@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <sstream>
+#include <typeinfo>
 
 namespace dd {
 
@@ -30,6 +31,10 @@ namespace dd {
           */
         bool operator==(const DdObject & other) const {
             return this->equals(other);
+        }
+
+        std::string getTypeName() const {
+            return typeid(*this).name();
         }
    };
 }

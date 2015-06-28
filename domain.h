@@ -1,7 +1,9 @@
 #pragma once
 #include <vector>
 #include "pointregistrable.h"
+#include "hashedpointregistrable.h"
 #include "ddobject.h"
+#include <string>
 
 namespace dd {
 
@@ -12,7 +14,7 @@ namespace dd {
     /**
       * Problem domain.
       */
-    class Domain : public PointRegistrable {
+    class Domain : public HashedPointRegistrable {
     private:
         std::vector<SlipSystem *> sSystems;
     public:

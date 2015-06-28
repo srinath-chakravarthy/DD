@@ -2,6 +2,7 @@
 #define POINTREGISTRABLE_H
 
 #include <list>
+#include "ddobject.h"
 
 namespace dd {
 
@@ -16,7 +17,7 @@ namespace dd {
     /**
      * Point registrable object.
      */
-    class PointRegistrable {
+    class PointRegistrable : public DdObject {
         template <typename T> friend class PointRegistration;
     protected:
         pointContainer points;

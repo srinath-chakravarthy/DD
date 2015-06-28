@@ -19,17 +19,4 @@ namespace dd {
     void DislocationPoint::remove() {
 
     }
-
-    double DislocationPoint::getBurgersMagnitude() const {
-        return sPlaneRegistration->getTarget()->getSlipSystem()->getBurgersMagnitude();
-    }
-
-    Vector2d DislocationPoint::getBurgersVector() const {
-        return sPlaneRegistration->getTarget()->getSlipSystem()->getDirection() *
-               sPlaneRegistration->getTarget()->getSlipSystem()->getBurgersMagnitude();
-    }
-
-    Vector2d DislocationPoint::getForce() {
-        return domainRegistration->getTarget()->getForceOn(this);
-    }
 }
