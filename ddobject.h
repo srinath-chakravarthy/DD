@@ -5,6 +5,9 @@
 
 namespace dd {
 
+    typedef std::string string;
+    typedef std::stringstream stringstream;
+
     /**
       * Base Java object for DD.
       */
@@ -13,8 +16,8 @@ namespace dd {
         /**
           * Dump to string.
           */
-        virtual std::string toString() const {
-            std::stringstream ss;
+        virtual string toString() const {
+            stringstream ss;
             ss << (void*) this;
             return ss.str();
         }
@@ -35,6 +38,16 @@ namespace dd {
 
         std::string getTypeName() const {
             return typeid(*this).name();
+        }
+
+        template <typename T>
+        static std::string getTypeName(T arg) {
+            return typeid(arg).name();
+        }
+
+        template <typename T>
+        static std::string getTypeName() {
+            return typeid(T).name();
         }
    };
 }

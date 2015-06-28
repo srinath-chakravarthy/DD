@@ -21,16 +21,24 @@ namespace dd {
         Complex(const Vector2d & vec);
 
         template <typename T>
-        Complex operator*(const T & val) const;
+        Complex operator*(const T & val) const {
+            return static_cast<std::complex<double>>(*this) * val;
+        }
 
         template <typename T>
-        Complex operator+(const T & val) const;
+        Complex operator+(const T & val) const {
+            return static_cast<std::complex<double>>(*this) + val;
+        }
 
         template <typename T>
-        Complex operator-(const T & val) const;
+        Complex operator-(const T & val) const {
+            return (*this) + (-val);
+        }
 
         template <typename T>
-        Complex operator/(const T & val) const;
+        Complex operator/(const T & val) const {
+            return static_cast<std::complex<double>>(*this) / val;
+        }
 
         Complex operator-() const;
 

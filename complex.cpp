@@ -9,46 +9,6 @@ namespace dd {
     Complex::Complex(const Vector2d & vec) :
         Complex::Complex(vec.x, vec.y) { }
 
-    template<typename T>
-    Complex Complex::operator*(const T & val) const {
-        return Complex(real() + val, imag());
-    }
-    template<>
-    Complex Complex::operator*<Complex>(const Complex & val) const {
-        return (static_cast<std::complex<double>> (*this)) *
-               (static_cast<std::complex<double>> (val));
-    }
-
-    template<typename T>
-    Complex Complex::operator+(const T & val) const {
-        return Complex(real() + val, imag());
-    }
-    template<>
-    Complex Complex::operator+<Complex>(const Complex & val) const {
-        return (static_cast<std::complex<double>> (*this)) +
-               (static_cast<std::complex<double>> (val));
-    }
-
-    template<typename T>
-    Complex Complex::operator-(const T & val) const {
-        return Complex(real() - val, imag());
-    }
-    template<>
-    Complex Complex::operator-<Complex>(const Complex & val) const {
-        return (static_cast<std::complex<double>> (*this)) -
-               (static_cast<std::complex<double>> (val));
-    }
-
-    template<typename T>
-    Complex Complex::operator/(const T & val) const {
-        return Complex(real() / val, imag() / val);
-    }
-    template<>
-    Complex Complex::operator/<Complex>(const Complex & val) const {
-        return (static_cast<std::complex<double>> (*this)) /
-               (static_cast<std::complex<double>> (val));
-    }
-
     Complex Complex::operator-() const {
         return Complex(-real(), -imag());
     }

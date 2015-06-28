@@ -14,6 +14,7 @@ namespace dd {
         std::string getKey(const Point * p) const;
         std::string getKey(const pointContainer::iterator & it) const;
     public:
+
         /**
          * Register the given point before the given position.
          */

@@ -56,5 +56,11 @@ namespace dd {
         virtual void spawn();
         virtual bool canRemove() const = 0;
         virtual void remove();
+
+        double getBurgersMagnitude() const;
+        Vector2d getBurgersVector() const;
+
+        virtual Vector2d getForce(const pointContainer & sources);
+        virtual Vector2d getForce(std::string fromPointType);
     };
 }

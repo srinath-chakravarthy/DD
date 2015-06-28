@@ -17,7 +17,6 @@ typedef long long ll;
 
 int main() {
 
-
     /*
 
     Domain d(1);
