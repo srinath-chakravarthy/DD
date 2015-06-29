@@ -17,6 +17,9 @@ namespace dd {
                     pointContainer::iterator antecedentIt, double slipPlanePosition) :
             Point(domain, sPlane, antecedentIt, slipPlanePosition) { }
 
+        double getStrength() const { return 0; }
+        double getLength() const { return 0; }
+
         virtual bool canMove() const { return false; }
 
         virtual bool canSpawn() const { return true; }

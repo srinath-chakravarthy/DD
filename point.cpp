@@ -1,6 +1,5 @@
 #include "point.h"
 #include "dderror.h"
-#include <string>
 #include "vector2d.h"
 #include "domain.h"
 #include "complex.h"
@@ -79,7 +78,7 @@ namespace dd {
         return Vector2d(bi.real(), b.imag());
     }
 
-    Vector2d Point::getForce(std::string fromPointType) {
+    Vector2d Point::getForce(string fromPointType) {
         return getForce(getDomain()->getContainer(fromPointType));
     }
 }

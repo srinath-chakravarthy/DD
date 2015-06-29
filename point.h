@@ -14,9 +14,9 @@ namespace dd {
       */
     class Point : public DdObject {
     protected:
-        PointRegistration<Domain> * domainRegistration;
-        PointRegistration<SlipPlane> * sPlaneRegistration;
-        double slipPlanePosition;
+        PointRegistration<Domain> * domainRegistration = nullptr;
+        PointRegistration<SlipPlane> * sPlaneRegistration = nullptr;
+        double slipPlanePosition = 0;
     public:
 
         /**
@@ -25,11 +25,15 @@ namespace dd {
         Point(Domain * domain, SlipPlane * sPlane, pointContainer::iterator antecedentIt,
               double slipPlanePosition) :
                   slipPlanePosition(slipPlanePosition) {
-            this->domainRegistration = new PointRegistration<Domain>(this,
-                                                                     domain);
-            this->sPlaneRegistration = new PointRegistration<SlipPlane>(this,
-                                                                        sPlane,
-                                                                        antecedentIt);
+            if(domain != nullptr) {
+                this->domainRegistration = new PointRegistration<Domain>(this,
+                                                                         domain);
+            }
+            if(sPlane != nullptr) {
+                this->sPlaneRegistration = new PointRegistration<SlipPlane>(this,
+                                                                            sPlane,
+                                                                            antecedentIt);
+            }
         }
 
         /**
