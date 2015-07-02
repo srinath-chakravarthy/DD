@@ -16,7 +16,7 @@ namespace dd {
         DislocationPoint(Domain * domain, SlipPlane * sPlane, double slipPlanePosition) :
             Point(domain, sPlane, slipPlanePosition) { }
         DislocationPoint(Domain * domain, SlipPlane * sPlane,
-                         pointContainer::iterator antecedentIt, double slipPlanePosition) :
+                         typename list<Point *>::iterator antecedentIt, double slipPlanePosition) :
             Point(domain, sPlane, antecedentIt, slipPlanePosition)  { }
 
         virtual bool canMove() const { return true; }

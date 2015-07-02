@@ -12,13 +12,14 @@
 #include "hashedpointregistrable.h"
 #include "complex.h"
 #include "vector.h"
+#include "hashedregistrable.h"
 
 using namespace dd;
 typedef long long ll;
 
-
-
 int main() {
+
+    HashedRegistrable<Domain> hr;
 
     /*
 

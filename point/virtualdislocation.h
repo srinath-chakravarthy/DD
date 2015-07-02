@@ -16,7 +16,7 @@ namespace dd {
         VirtualDislocationPoint(Domain * domain, SlipPlane * sPlane, double slipPlanePosition) :
             Point(domain, sPlane, slipPlanePosition) { }
         VirtualDislocationPoint(Domain * domain, SlipPlane * sPlane,
-                                pointContainer::iterator antecedentIt, double slipPlanePosition) :
+                                typename list<Point *>::iterator antecedentIt, double slipPlanePosition) :
             Point(domain, sPlane, antecedentIt, slipPlanePosition) { }
 
         virtual string typeName() const { return VIRTUALDISLOCATION_NAME; }

@@ -3,7 +3,7 @@
 #include "ddobject.h"
 #include "domain.h"
 #include "slipplane.h"
-#include "pointregistration.h"
+#include "registration.h"
 #include "vector.h"
 #include <string>
 
@@ -15,25 +15,25 @@ namespace dd {
     class Point : public DdObject {
 #define POINT_NAME "Point"
     protected:
-        PointRegistration<Domain> * domainRegistration = nullptr;
-        PointRegistration<SlipPlane> * sPlaneRegistration = nullptr;
+        Registration<Point, Domain> * domainRegistration = nullptr;
+        Registration<Point, SlipPlane> * sPlaneRegistration = nullptr;
         double slipPlanePosition = 0;
     public:
 
         /**
          * Registers the point after the given iterator position within the sPlane.
          */
-        Point(Domain * domain, SlipPlane * sPlane, pointContainer::iterator antecedentIt,
+        Point(Domain * domain, SlipPlane * sPlane, typename list<Point *>::iterator antecedentIt,
               double slipPlanePosition) :
                   slipPlanePosition(slipPlanePosition) {
             if(domain != nullptr) {
-                this->domainRegistration = new PointRegistration<Domain>(this,
-                                                                         domain);
+                this->domainRegistration = new Registration<Point, Domain>(this,
+                                                                           domain);
             }
             if(sPlane != nullptr) {
-                this->sPlaneRegistration = new PointRegistration<SlipPlane>(this,
-                                                                            sPlane,
-                                                                            antecedentIt);
+                this->sPlaneRegistration = new Registration<Point, SlipPlane>(this,
+                                                                              sPlane,
+                                                                              antecedentIt);
             }
         }
 
@@ -41,7 +41,14 @@ namespace dd {
          * Register the point to the end of the sPlane.
          */
         Point(Domain * domain, SlipPlane * sPlane, double slipPlanePosition) :
-            Point::Point(domain, sPlane, sPlane->getEndIterator(), slipPlanePosition) { }
+            slipPlanePosition(slipPlanePosition) {
+            if(domain != nullptr) {
+                this->domainRegistration = new Registration<Point, Domain>(this, domain);
+            }
+            if(sPlane != nullptr) {
+                this->sPlaneRegistration = new Registration<Point, SlipPlane>(this, sPlane);
+            }
+        }
 
         /**
          * Destructor

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "pointregistrable.h"
+#include "hashedregistrable.h"
 #include "domain.h"
 #include "vector.h"
 
@@ -8,7 +8,7 @@ namespace dd {
 
     class ObstaclePoint;
 
-    class SlipPlane : public PointRegistrable {
+    class SlipPlane : public HashedRegistrable<Point> {
 #define SLIPPLANE_NAME "SlipPlane"
     private:
         Domain * domain;
@@ -26,7 +26,6 @@ namespace dd {
         double getCos() const;
         double getBurgersMagnitude() const;
         Vector2d getBurgersVector() const;
-        pointContainer::iterator getEndIterator();
         SlipSystem * getSlipSystem() { return slipSystem; }
         Vector2d getOrigin() const;
         Vector2d getPointPosition(const double & slipPlaneLocation) const;

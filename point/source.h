@@ -15,7 +15,7 @@ namespace dd {
         SourcePoint(Domain * domain, SlipPlane * sPlane, double slipPlanePosition) :
             Point(domain, sPlane, slipPlanePosition) { }
         SourcePoint(Domain * domain, SlipPlane * sPlane,
-                    pointContainer::iterator antecedentIt, double slipPlanePosition) :
+                    typename list<Point *>::iterator antecedentIt, double slipPlanePosition) :
             Point(domain, sPlane, antecedentIt, slipPlanePosition) { }
 
         double getStrength() const { return 0; }
