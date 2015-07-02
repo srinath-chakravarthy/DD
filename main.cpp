@@ -11,12 +11,12 @@
 #include <list>
 #include "hashedpointregistrable.h"
 #include "complex.h"
+#include "vector.h"
 
 using namespace dd;
 typedef long long ll;
 
 int main() {
-
     /*
 
     Domain d(1);
