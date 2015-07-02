@@ -6,7 +6,6 @@
 #include "point/source.h"
 #include <cmath>
 #include "complex.h"
-#include "hashedpointregistrable.h"
 #include <string>
 
 namespace dd {

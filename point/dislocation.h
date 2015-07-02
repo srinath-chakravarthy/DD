@@ -1,23 +1,30 @@
 #ifndef DISLOCATION_H
 #define DISLOCATION_H
 
+#include "../betweenpoints.h"
+
 namespace dd {
 
     class Point;
     class Domain;
     class SlipPlane;
+    class ObstaclePoint;
 
-    class DislocationPoint : public Point {
+    class DislocationPoint : public Point, public BetweenPoints<ObstaclePoint> {
 #define DISLOCATIONPOINT_NAME "DislocationPoint"
     private:
-        double burgersMagnitude;
+        int burgersSign;
     public:
 
-        DislocationPoint(Domain * domain, SlipPlane * sPlane, double slipPlanePosition) :
-            Point(domain, sPlane, slipPlanePosition) { }
+        DislocationPoint(Domain * domain, SlipPlane * sPlane, double slipPlanePosition, int burgersSign,
+                         list<ObstaclePoint *>::iterator nextObstacle,
+                         list<ObstaclePoint *>::reverse_iterator prevObstacle);
         DislocationPoint(Domain * domain, SlipPlane * sPlane,
-                         typename list<Point *>::iterator antecedentIt, double slipPlanePosition) :
-            Point(domain, sPlane, antecedentIt, slipPlanePosition)  { }
+                         list<Point *>::iterator antecedentIt, double slipPlanePosition, int burgersSign,
+                         list<ObstaclePoint *>::iterator nextObstacle,
+                         list<ObstaclePoint *>::reverse_iterator prevObstacle);
+
+        int getBurgersSign() const { return burgersSign; }
 
         virtual bool canMove() const { return true; }
         virtual void move();

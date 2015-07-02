@@ -3,21 +3,28 @@
 
 #include "../point.h"
 #include "source.h"
+#include "../betweenpoints.h"
 
 namespace dd {
 
     class Domain;
     class SlipPlane;
 
-    class VirtualDislocationPoint : public Point {
+    class VirtualDislocationPoint : public Point, public BetweenPoints<ObstaclePoint> {
 #define VIRTUALDISLOCATION_NAME "VirtualDislocation"
     public:
 
-        VirtualDislocationPoint(Domain * domain, SlipPlane * sPlane, double slipPlanePosition) :
-            Point(domain, sPlane, slipPlanePosition) { }
+        VirtualDislocationPoint(Domain * domain, SlipPlane * sPlane, double slipPlanePosition,
+                                list<ObstaclePoint *>::iterator next,
+                                list<ObstaclePoint *>::reverse_iterator prev) :
+            Point(domain, sPlane, slipPlanePosition),
+            BetweenPoints<ObstaclePoint>(next, prev) { }
         VirtualDislocationPoint(Domain * domain, SlipPlane * sPlane,
-                                typename list<Point *>::iterator antecedentIt, double slipPlanePosition) :
-            Point(domain, sPlane, antecedentIt, slipPlanePosition) { }
+                                list<Point *>::iterator antecedentIt, double slipPlanePosition,
+                                list<ObstaclePoint *>::iterator next,
+                                list<ObstaclePoint *>::reverse_iterator prev) :
+            Point(domain, sPlane, antecedentIt, slipPlanePosition),
+            BetweenPoints<ObstaclePoint>(next, prev) { }
 
         virtual string typeName() const { return VIRTUALDISLOCATION_NAME; }
         static string staticTypeName() { return VIRTUALDISLOCATION_NAME; }

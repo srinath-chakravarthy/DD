@@ -9,7 +9,6 @@
 #include "point/source.h"
 #include <string>
 #include <list>
-#include "hashedpointregistrable.h"
 #include "complex.h"
 #include "vector.h"
 #include "hashedregistrable.h"
