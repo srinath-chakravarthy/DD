@@ -1,7 +1,7 @@
 #include "domain.h"
 #include "slipsystem.h"
 #include "point.h"
-#include "vector2d.h"
+#include "vector.h"
 #include "point/dislocation.h"
 #include "point/source.h"
 #include <cmath>

@@ -3,13 +3,13 @@
 #include "pointregistrable.h"
 #include "hashedpointregistrable.h"
 #include "ddobject.h"
+#include "vector.h"
 #include <string>
 
 namespace dd {
 
     class SlipSystem;
     class DislocationPoint;
-    class Vector2d;
 
     /**
       * Problem domain.

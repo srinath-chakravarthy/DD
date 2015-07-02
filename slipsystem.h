@@ -2,7 +2,7 @@
 #define SLIPSYSTEM_H
 
 #include "ddobject.h"
-#include "vector2d.h"
+#include "vector.h"
 #include <cmath>
 #include <list>
 
@@ -27,7 +27,7 @@ namespace dd {
             angle(angle),
             sin(::sin(angle)),
             cos(::cos(angle)),
-            directionVector(cos, sin),
+            directionVector({cos, sin}),
             bMag(bMag) { }
 
         virtual void addSlipPlane(SlipPlane * sPlane);

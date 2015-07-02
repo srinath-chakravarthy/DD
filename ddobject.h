@@ -2,11 +2,14 @@
 #include <string>
 #include <sstream>
 #include <typeinfo>
+#include <list>
 
 namespace dd {
 
     typedef std::string string;
     typedef std::stringstream stringstream;
+    template <typename T>
+    using list = std::list<T>;
 
     /**
       * Base Java object for DD.

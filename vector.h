@@ -1,6 +1,8 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 
+#include <initializer_list>
+
 namespace dd {
 
 
@@ -75,6 +77,17 @@ namespace dd {
         }
 
         /**
+         * Initializer-list constructor
+         */
+        Vector(const std::initializer_list<double> & init) {
+            unsigned index = 0;
+            for(double val : init) {
+                data[index] = val;
+                index++;
+            }
+        }
+
+        /**
          * Unary minus
          */
         Vector operator-() const {
@@ -103,9 +116,14 @@ namespace dd {
          * Scaling
          */
         Vector operator*(const double & factor) const {
-            return Vector(*this).scale(factor);
+            Vector result(*this);
+            result.scale(-1);
+            return result;
         }
     };
+
+    typedef Vector<2> Vector2d;
+    typedef Vector<3> Vector3d;
 }
 
 #endif // VECTOR_H

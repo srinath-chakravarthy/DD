@@ -2,7 +2,7 @@
 
 #include "pointregistrable.h"
 #include "domain.h"
-#include "vector2d.h"
+#include "vector.h"
 
 namespace dd {
 

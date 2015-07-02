@@ -2,11 +2,10 @@
 #define COMPLEX_H
 
 #include "ddobject.h"
+#include "vector.h"
 #include <complex>
 
 namespace dd {
-
-    class Vector2d;
 
     class Complex : public DdObject, public std::complex<double> {
     public:

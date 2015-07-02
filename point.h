@@ -4,7 +4,7 @@
 #include "domain.h"
 #include "slipplane.h"
 #include "pointregistration.h"
-#include "vector2d.h"
+#include "vector.h"
 #include <string>
 
 namespace dd {

@@ -1,6 +1,6 @@
 #include "slipsystem.h"
 #include "slipplane.h"
-#include "vector2d.h"
+#include "vector.h"
 
 namespace dd {
 

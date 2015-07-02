@@ -1,6 +1,6 @@
 #include "point.h"
 #include "dderror.h"
-#include "vector2d.h"
+#include "vector.h"
 #include "domain.h"
 #include "complex.h"
 
@@ -75,7 +75,7 @@ namespace dd {
 
         Complex bi = b * ((sig22 - sig11) * .5 * sin2i + sig12 * cos2i);
 
-        return Vector2d(bi.real(), b.imag());
+        return Vector2d({bi.real(), b.imag()});
     }
 
     Vector2d Point::getForce(string fromPointType) {

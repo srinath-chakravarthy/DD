@@ -1,7 +1,7 @@
 
 #include "../point.h"
 #include "dislocation.h"
-#include "../vector2d.h"
+#include "../vector.h"
 #include "../slipsystem.h"
 #include "../slipplane.h"
 #include "../domain.h"
