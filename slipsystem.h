@@ -11,6 +11,7 @@ namespace dd {
     class SlipPlane;
 
     class SlipSystem {
+#define SLIPSYSTEM_NAME "SlipSystem"
     private:
         std::list<SlipPlane *> sPlanes;
         double angle;
@@ -39,6 +40,8 @@ namespace dd {
         virtual Vector2d getPointPosition(const double & slipPlaneLocation,
                                           const Vector2d & slipPlaneOrigin) const;
 
+        virtual string typeName() const { return SLIPSYSTEM_NAME; }
+        static string staticTypeName() { return SLIPSYSTEM_NAME; }
     };
 }
 

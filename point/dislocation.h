@@ -8,6 +8,7 @@ namespace dd {
     class SlipPlane;
 
     class DislocationPoint : public Point {
+#define DISLOCATIONPOINT_NAME "DislocationPoint"
     private:
         double burgersMagnitude;
     public:
@@ -27,6 +28,8 @@ namespace dd {
         virtual bool canRemove() const { return true; }
         virtual void remove();
 
+        virtual string typeName() const { return DISLOCATIONPOINT_NAME; }
+        static string staticTypeName() { return DISLOCATIONPOINT_NAME; }
     };
 
 }

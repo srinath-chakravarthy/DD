@@ -11,6 +11,7 @@ namespace dd {
      */
     template <unsigned size>
     class Vector {
+#define VECTOR_NAME "Vector"
     private:
         double data[size];
     public:
@@ -129,6 +130,9 @@ namespace dd {
         Vector & operator*=(const double & factor) {
             return *this = (*this * factor);
         }
+
+        virtual string typeName() const { return VECTOR_NAME; }
+        static string staticTypeName() { return VECTOR_NAME; }
     };
 
     typedef Vector<2> Vector2d;

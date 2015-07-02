@@ -8,6 +8,7 @@
 namespace dd {
 
     class Complex : public DdObject, public std::complex<double> {
+#define COMPLEX_NAME "Complex"
     public:
         static const Complex i;
 
@@ -43,6 +44,9 @@ namespace dd {
 
         double abs() const;
         Complex conjugate() const;
+
+        virtual string typeName() const { return COMPLEX_NAME; }
+        static string staticTypeName() { return COMPLEX_NAME; }
     };
 }
 

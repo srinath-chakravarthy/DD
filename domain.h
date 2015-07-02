@@ -15,6 +15,7 @@ namespace dd {
       * Problem domain.
       */
     class Domain : public HashedPointRegistrable {
+#define DOMAIN_NAME "Domain"
     private:
         std::vector<SlipSystem *> sSystems;
     public:
@@ -22,5 +23,8 @@ namespace dd {
         Domain();
         void addSlipSystem(SlipSystem * ss);
         Vector2d getForceOn(DislocationPoint * point);
+
+        virtual string typeName() const { return DOMAIN_NAME; }
+        static string staticTypeName() { return DOMAIN_NAME; }
     };
 }

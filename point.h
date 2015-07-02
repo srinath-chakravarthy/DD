@@ -13,6 +13,7 @@ namespace dd {
       * Abstract point class.
       */
     class Point : public DdObject {
+#define POINT_NAME "Point"
     protected:
         PointRegistration<Domain> * domainRegistration = nullptr;
         PointRegistration<SlipPlane> * sPlaneRegistration = nullptr;
@@ -68,5 +69,8 @@ namespace dd {
                                           Vector<2> &, Vector<3> &);
         virtual void addForceContribution(const list<Point *> &, Vector<2> &,
                                           Vector<2> &, Vector<3> &);
+
+        virtual string typeName() const { return POINT_NAME; }
+        static string staticTypeName() { return POINT_NAME; }
     };
 }

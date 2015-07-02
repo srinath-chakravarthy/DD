@@ -9,6 +9,7 @@ namespace dd {
     class SlipPlane;
 
     class SourcePoint : public Point {
+#define SOURCEPOINT_NAME "SourcePoint"
     public:
 
         SourcePoint(Domain * domain, SlipPlane * sPlane, double slipPlanePosition) :
@@ -26,6 +27,9 @@ namespace dd {
         virtual void spawn();
 
         virtual bool canRemove() const { return true; }
+
+        virtual string typeName() const { return SOURCEPOINT_NAME; }
+        static string staticTypeName() { return SOURCEPOINT_NAME; }
     };
 }
 

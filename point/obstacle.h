@@ -8,8 +8,8 @@ namespace dd {
     class SlipPlane;
 
     class ObstaclePoint : public Point {
+#define OBSTACLEPOINT_NAME "OBSTACLEPOINT"
     public:
-
         ObstaclePoint(Domain * domain, SlipPlane * sPlane, double slipPlanePosition) :
             Point(domain, sPlane, slipPlanePosition) { }
         ObstaclePoint(Domain * domain, SlipPlane * sPlane,
@@ -25,6 +25,9 @@ namespace dd {
 
         virtual bool canRemove() const { return true; }
         virtual void remove();
+
+        virtual string typeName() const { return OBSTACLEPOINT_NAME; }
+        static string staticTypeName() { return OBSTACLEPOINT_NAME; }
     };
 
 }

@@ -4,7 +4,7 @@
 namespace dd {
 
     std::string HashedPointRegistrable::getKey(const Point * p) const {
-        return p->getTypeName();
+        return p->typeName();
     }
 
     std::string HashedPointRegistrable::getKey(const pointContainer::iterator & it) const {

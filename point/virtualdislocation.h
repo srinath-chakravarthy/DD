@@ -10,6 +10,7 @@ namespace dd {
     class SlipPlane;
 
     class VirtualDislocationPoint : public Point {
+#define VIRTUALDISLOCATION_NAME "VirtualDislocation"
     public:
 
         VirtualDislocationPoint(Domain * domain, SlipPlane * sPlane, double slipPlanePosition) :
@@ -17,6 +18,9 @@ namespace dd {
         VirtualDislocationPoint(Domain * domain, SlipPlane * sPlane,
                                 pointContainer::iterator antecedentIt, double slipPlanePosition) :
             Point(domain, sPlane, antecedentIt, slipPlanePosition) { }
+
+        virtual string typeName() const { return VIRTUALDISLOCATION_NAME; }
+        static string staticTypeName() { return VIRTUALDISLOCATION_NAME; }
     };
 }
 

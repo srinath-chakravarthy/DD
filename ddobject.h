@@ -15,6 +15,7 @@ namespace dd {
       * Base Java object for DD.
       */
     class DdObject {
+#define DDOBJECT_NAME "DdObject"
     public:
         /**
           * Dump to string.
@@ -39,18 +40,8 @@ namespace dd {
             return this->equals(other);
         }
 
-        std::string getTypeName() const {
-            return typeid(*this).name();
-        }
+        virtual string typeName() const { return DDOBJECT_NAME; }
+        static string staticTypeName() { return DDOBJECT_NAME; }
 
-        template <typename T>
-        static std::string getTypeName(T arg) {
-            return typeid(arg).name();
-        }
-
-        template <typename T>
-        static std::string getTypeName() {
-            return typeid(T).name();
-        }
    };
 }

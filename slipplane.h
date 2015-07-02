@@ -9,6 +9,7 @@ namespace dd {
     class ObstaclePoint;
 
     class SlipPlane : public PointRegistrable {
+#define SLIPPLANE_NAME "SlipPlane"
     private:
         Domain * domain;
         SlipSystem * slipSystem;
@@ -29,5 +30,8 @@ namespace dd {
         SlipSystem * getSlipSystem() { return slipSystem; }
         Vector2d getOrigin() const;
         Vector2d getPointPosition(const double & slipPlaneLocation) const;
+
+        virtual string typeName() const { return SLIPPLANE_NAME; }
+        static string staticTypeName() { return SLIPPLANE_NAME; }
     };
 }
