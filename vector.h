@@ -104,12 +104,18 @@ namespace dd {
             }
             return result;
         }
+        Vector & operator+=(const Vector & other) {
+            return *this = (*this + other);
+        }
 
         /**
          * Vector subtraction
          */
         Vector operator-(const Vector & other) const {
             return (*this) + (-Vector(other));
+        }
+        Vector & operator-=(const Vector & other) {
+            return *this = (*this - other);
         }
 
         /**
@@ -119,6 +125,9 @@ namespace dd {
             Vector result(*this);
             result.scale(-1);
             return result;
+        }
+        Vector & operator*=(const double & factor) {
+            return *this = (*this * factor);
         }
     };
 

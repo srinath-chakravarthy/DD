@@ -17,7 +17,7 @@ namespace dd {
         Complex(const std::complex<double> & comp) :
             Complex(comp.real(), comp.imag()) { }
 
-        Complex(const Vector2d & vec);
+        Complex(const Vector<2> & vec);
 
         template <typename T>
         Complex operator*(const T & val) const {

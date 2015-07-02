@@ -64,7 +64,9 @@ namespace dd {
         double getBurgersMagnitude() const;
         Vector2d getBurgersVector() const;
 
-        virtual Vector2d getForce(const pointContainer & sources);
-        virtual Vector2d getForce(std::string fromPointType);
+        virtual void addForceContribution(const Point * &, Vector<2> &,
+                                          Vector<2> &, Vector<3> &);
+        virtual void addForceContribution(const list<Point *> &, Vector<2> &,
+                                          Vector<2> &, Vector<3> &);
     };
 }

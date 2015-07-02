@@ -6,7 +6,7 @@
 namespace dd {
 
     const Complex Complex::i = Complex(0, 1);
-    Complex::Complex(const Vector2d & vec) :
+    Complex::Complex(const Vector<2> & vec) :
         Complex::Complex(vec[0], vec[1]) { }
 
     Complex Complex::operator-() const {
