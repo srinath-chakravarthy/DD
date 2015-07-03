@@ -11,10 +11,14 @@ namespace dd {
 #define OBSTACLEPOINT_NAME "OBSTACLEPOINT"
     public:
         ObstaclePoint(Domain * domain, SlipPlane * sPlane, double slipPlanePosition) :
-            Point(domain, sPlane, slipPlanePosition) { }
+            Point(slipPlanePosition) {
+            setRegistrations(domain, sPlane);
+        }
         ObstaclePoint(Domain * domain, SlipPlane * sPlane,
                       typename list<Point *>::iterator antecedentIt, double slipPlanePosition) :
-            Point(domain, sPlane, antecedentIt, slipPlanePosition) { }
+            Point(slipPlanePosition) {
+            setRegistrations(domain, sPlane, antecedentIt);
+        }
 
         double getStrength() const { return 0; }
 

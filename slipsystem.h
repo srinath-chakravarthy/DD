@@ -4,13 +4,13 @@
 #include "ddobject.h"
 #include "vector.h"
 #include <cmath>
-#include <list>
+#include "hashedregistrable.h"
 
 namespace dd {
 
     class SlipPlane;
 
-    class SlipSystem {
+    class SlipSystem : public HashedRegistrable<SlipPlane> {
 #define SLIPSYSTEM_NAME "SlipSystem"
     private:
         std::list<SlipPlane *> sPlanes;
@@ -31,7 +31,6 @@ namespace dd {
             directionVector({cos, sin}),
             bMag(bMag) { }
 
-        virtual void addSlipPlane(SlipPlane * sPlane);
         double getAngle() const { return angle; }
         double getSin() const { return sin; }
         double getCos() const { return cos; }

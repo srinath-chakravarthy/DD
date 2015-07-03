@@ -84,5 +84,9 @@ namespace dd {
             addForceContribution(p, force, v2, stress);
         }
     }
+
+    void Point::addForceContribution(const string & key, Vector<2> & force, Vector<2> & v2, Vector<3> & stress) {
+        addForceContribution(getDomain()->getContainer(key), force, v2, stress);
+    }
 }
 

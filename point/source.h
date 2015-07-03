@@ -8,7 +8,7 @@ namespace dd {
     class Domain;
     class SlipPlane;
 
-    class SourcePoint : public Point, public BetweenPoints<ObstaclePoint> {
+    class SourcePoint : public Point, public BetweenPoints<Point> {
 #define SOURCEPOINT_NAME "SourcePoint"
     private:
         double strength;
@@ -16,20 +16,24 @@ namespace dd {
     public:
 
         SourcePoint(Domain * domain, SlipPlane * sPlane, double slipPlanePosition, double strength, double length,
-                    list<ObstaclePoint *>::iterator next,
-                    list<ObstaclePoint *>::reverse_iterator prev) :
-            Point(domain, sPlane, slipPlanePosition),
-            BetweenPoints<ObstaclePoint>(next, prev),
+                    list<Point *>::iterator next,
+                    list<Point *>::reverse_iterator prev) :
+            Point(slipPlanePosition),
+            BetweenPoints<Point>(next, prev),
             strength(strength),
-            length(length) { }
+            length(length) {
+            setRegistrations(domain, sPlane);
+        }
         SourcePoint(Domain * domain, SlipPlane * sPlane,
                     list<Point *>::iterator antecedentIt, double slipPlanePosition, double strength, double length,
-                    list<ObstaclePoint *>::iterator next,
-                    list<ObstaclePoint *>::reverse_iterator prev) :
-            Point(domain, sPlane, antecedentIt, slipPlanePosition),
-            BetweenPoints<ObstaclePoint>(next, prev),
+                    list<Point *>::iterator next,
+                    list<Point *>::reverse_iterator prev) :
+            Point(slipPlanePosition),
+            BetweenPoints<Point>(next, prev),
             strength(strength),
-            length(length) { }
+            length(length) {
+            setRegistrations(domain, sPlane, antecedentIt);
+        }
 
         double getStrength() const { return 0; }
         double getLength() const { return 0; }

@@ -5,14 +5,20 @@
 
 namespace dd {
 
-    double SlipPlane::getAngle() const { return slipSystem->getAngle(); }
-    double SlipPlane::getCos() const { return slipSystem->getCos(); }
-    double SlipPlane::getSin() const { return slipSystem->getSin(); }
-    double SlipPlane::getBurgersMagnitude() const { return slipSystem->getBurgersMagnitude(); }
-    Vector2d SlipPlane::getBurgersVector() const { return slipSystem->getDirection() * getBurgersMagnitude(); }
+    SlipPlane::SlipPlane(Domain * domain, SlipSystem * slipSystem, Vector2d origin) :
+        domain(domain),
+        slipSystemRegistration(this, slipSystem),
+        origin(origin) { }
+
+    SlipSystem * SlipPlane::getSlipSystem() const { return slipSystemRegistration.getTarget(); }
+    double SlipPlane::getAngle() const { return getSlipSystem()->getAngle(); }
+    double SlipPlane::getCos() const { return getSlipSystem()->getCos(); }
+    double SlipPlane::getSin() const { return getSlipSystem()->getSin(); }
+    double SlipPlane::getBurgersMagnitude() const { return getSlipSystem()->getBurgersMagnitude(); }
+    Vector2d SlipPlane::getBurgersVector() const { return getSlipSystem()->getDirection() * getBurgersMagnitude(); }
     Vector2d SlipPlane::getOrigin() const { return origin; }
     Vector2d SlipPlane::getPointPosition(const double & slipPlaneLocation) const {
-        return slipSystem->getPointPosition(slipPlaneLocation, origin);
+        return getSlipSystem()->getPointPosition(slipPlaneLocation, origin);
     }
 
 }

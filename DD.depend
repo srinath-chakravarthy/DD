@@ -1,0 +1,167 @@
+# depslib dependency file v1.0
+1435870959 source:c:\users\alp\desktop\dd github\dd\complex.cpp
+	"complex.h"
+	<cmath>
+	<complex>
+	"vector.h"
+	<iostream>
+
+1435872285 c:\users\alp\desktop\dd github\dd\complex.h
+	"ddobject.h"
+	"vector.h"
+	<complex>
+
+1435872034 c:\users\alp\desktop\dd github\dd\ddobject.h
+	<string>
+	<sstream>
+	<typeinfo>
+	<list>
+
+1435851618 c:\users\alp\desktop\dd github\dd\vector2d.h
+	<cmath>
+
+1435879172 source:c:\users\alp\desktop\dd github\dd\domain.cpp
+	"domain.h"
+	"slipsystem.h"
+	"point.h"
+	"vector.h"
+	"point/dislocation.h"
+	"point/source.h"
+	<cmath>
+	"complex.h"
+	<string>
+
+1435877503 c:\users\alp\desktop\dd github\dd\domain.h
+	<vector>
+	"hashedregistrable.h"
+	"ddobject.h"
+	"vector.h"
+	<string>
+
+1435877428 c:\users\alp\desktop\dd github\dd\pointregistrable.h
+	<list>
+	"ddobject.h"
+
+1435865724 c:\users\alp\desktop\dd github\dd\hashedpointregistrable.h
+	"pointregistrable.h"
+	<unordered_map>
+
+1435930330 c:\users\alp\desktop\dd github\dd\slipsystem.h
+	"ddobject.h"
+	"vector.h"
+	<cmath>
+	"hashedregistrable.h"
+
+1435934406 c:\users\alp\desktop\dd github\dd\point.h
+	"ddobject.h"
+	"domain.h"
+	"slipplane.h"
+	"registration.h"
+	"vector.h"
+	<string>
+
+1435930661 c:\users\alp\desktop\dd github\dd\slipplane.h
+	"hashedregistrable.h"
+	"registration.h"
+	"domain.h"
+	"vector.h"
+
+1435865724 c:\users\alp\desktop\dd github\dd\pointregistration.h
+	"pointregistrable.h"
+
+1435932518 c:\users\alp\desktop\dd github\dd\point\dislocation.h
+	"../betweenpoints.h"
+
+1435934008 c:\users\alp\desktop\dd github\dd\point\source.h
+	"../point.h"
+	"../betweenpoints.h"
+
+1435871646 source:c:\users\alp\desktop\dd github\dd\hashedpointregistrable.cpp
+	"point.h"
+	<unordered_map>
+
+1435934464 source:c:\users\alp\desktop\dd github\dd\main.cpp
+	"ddobject.h"
+	"domain.h"
+	"point.h"
+	"dderror.h"
+	"slipsystem.h"
+	"slipplane.h"
+	<iostream>
+	"point/dislocation.h"
+	"point/obstacle.h"
+	"point/source.h"
+	<string>
+	<list>
+	"complex.h"
+	"vector.h"
+	"hashedregistrable.h"
+
+1435872448 c:\users\alp\desktop\dd github\dd\dderror.h
+	<stdexcept>
+	<string>
+
+1435934338 source:c:\users\alp\desktop\dd github\dd\point.cpp
+	"point.h"
+	"dderror.h"
+	"vector.h"
+	"domain.h"
+	"complex.h"
+
+1435933972 source:c:\users\alp\desktop\dd github\dd\point\dislocation.cpp
+	"../point.h"
+	"dislocation.h"
+	"../vector.h"
+	"../slipsystem.h"
+	"../slipplane.h"
+	"../domain.h"
+
+1435851618 source:c:\users\alp\desktop\dd github\dd\point\obstacle.cpp
+	"../point.h"
+	"obstacle.h"
+
+1435933985 c:\users\alp\desktop\dd github\dd\point\obstacle.h
+
+1435851618 source:c:\users\alp\desktop\dd github\dd\point\source.cpp
+	"source.h"
+	<string>
+
+1435851618 source:c:\users\alp\desktop\dd github\dd\point\virtualdislocation.cpp
+	"../point.h"
+	"virtualdislocation.h"
+
+1435934076 c:\users\alp\desktop\dd github\dd\point\virtualdislocation.h
+	"../point.h"
+	"source.h"
+	"../betweenpoints.h"
+
+1435930684 source:c:\users\alp\desktop\dd github\dd\slipplane.cpp
+	"slipplane.h"
+	"slipsystem.h"
+	"point.h"
+	"point/obstacle.h"
+
+1435930671 source:c:\users\alp\desktop\dd github\dd\slipsystem.cpp
+	"slipsystem.h"
+	"slipplane.h"
+	"vector.h"
+	"point.h"
+
+1435930908 c:\users\alp\desktop\dd github\dd\vector.h
+	<initializer_list>
+
+1435934416 c:\users\alp\desktop\dd github\dd\hashedregistrable.h
+	"ddobject.h"
+	<unordered_map>
+	<iostream>
+
+1435873534 source:c:\users\alp\desktop\dd github\dd\hashedregistrable.cpp
+
+1435872909 c:\users\alp\desktop\dd github\dd\hashedregistration.h
+
+1435934118 c:\users\alp\desktop\dd github\dd\registration.h
+	"hashedregistrable.h"
+
+1435879159 c:\users\alp\desktop\dd github\dd\betweenpoints.h
+	<list>
+

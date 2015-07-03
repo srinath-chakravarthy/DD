@@ -3,6 +3,7 @@
 
 #include "ddobject.h"
 #include <unordered_map>
+#include <iostream>
 
 namespace dd {
 
@@ -18,7 +19,7 @@ namespace dd {
         virtual typename list<T *>::iterator insert(T * toInsert,
                                                     typename list<T *>::iterator antecedent) {
             containers[toInsert->typeName()].insert(antecedent, toInsert);
-            return antecedent--;
+            return --antecedent;
         }
 
         /**
@@ -33,6 +34,21 @@ namespace dd {
          */
         virtual void erase(typename list<T *>::iterator toErase) {
             containers[(*toErase)->typeName()].erase(toErase);
+        }
+
+        /**
+         * Get the container of the given type
+         */
+        template <typename U>
+        list<T *> & getContainer() {
+            return containers[U::staticTypeName()];
+        }
+
+        /**
+         * Get the container of the given key
+         */
+        list <T *> & getContainer(const string & key) {
+            return containers[key];
         }
 
         virtual string typeName() const { return HASHEDREGISTRABLE_NAME; }

@@ -36,6 +36,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="betweenpoints.h" />
 		<Unit filename="complex.cpp" />
 		<Unit filename="complex.h" />
 		<Unit filename="dderror.h">
@@ -44,8 +45,7 @@
 		<Unit filename="ddobject.h" />
 		<Unit filename="domain.cpp" />
 		<Unit filename="domain.h" />
-		<Unit filename="hashedpointregistrable.cpp" />
-		<Unit filename="hashedpointregistrable.h" />
+		<Unit filename="hashedregistrable.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="point.cpp" />
 		<Unit filename="point.h" />
@@ -57,13 +57,12 @@
 		<Unit filename="point/source.h" />
 		<Unit filename="point/virtualdislocation.cpp" />
 		<Unit filename="point/virtualdislocation.h" />
-		<Unit filename="pointregistrable.h" />
-		<Unit filename="pointregistration.h" />
+		<Unit filename="registration.h" />
 		<Unit filename="slipplane.cpp" />
 		<Unit filename="slipplane.h" />
 		<Unit filename="slipsystem.cpp" />
 		<Unit filename="slipsystem.h" />
-		<Unit filename="vector2d.h" />
+		<Unit filename="vector.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "hashedregistrable.h"
+#include "registration.h"
 #include "domain.h"
 #include "vector.h"
 
@@ -12,21 +13,18 @@ namespace dd {
 #define SLIPPLANE_NAME "SlipPlane"
     private:
         Domain * domain;
-        SlipSystem * slipSystem;
+        Registration<SlipPlane, SlipSystem> slipSystemRegistration;
         Vector2d origin;
 
     public:
-        SlipPlane(Domain * domain, SlipSystem * slipSystem, Vector2d origin) :
-            domain(domain),
-            slipSystem(slipSystem),
-            origin(origin) { }
+        SlipPlane(Domain * domain, SlipSystem * slipSystem, Vector2d origin);
 
         double getAngle() const;
         double getSin() const;
         double getCos() const;
         double getBurgersMagnitude() const;
         Vector2d getBurgersVector() const;
-        SlipSystem * getSlipSystem() { return slipSystem; }
+        SlipSystem * getSlipSystem() const;
         Vector2d getOrigin() const;
         Vector2d getPointPosition(const double & slipPlaneLocation) const;
 

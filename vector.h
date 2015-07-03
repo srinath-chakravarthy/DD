@@ -8,6 +8,9 @@ namespace dd {
 
     /**
      * Fixed-size vector class.
+     *
+     * TODO: Write allocation-free assignment operators;
+     * work infix operators through assignment operators.
      */
     template <unsigned size>
     class Vector {

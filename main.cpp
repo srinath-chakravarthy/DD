@@ -6,6 +6,7 @@
 #include "slipplane.h"
 #include <iostream>
 #include "point/dislocation.h"
+#include "point/obstacle.h"
 #include "point/source.h"
 #include <string>
 #include <list>
@@ -18,30 +19,27 @@ typedef long long ll;
 
 int main() {
 
-    HashedRegistrable<Domain> hr;
-
-    /*
-
     Domain d(1);
-    SlipSystem s(2. * asin(1) / 6, .25e-3);
-    d.addSlipSystem(&s);
-    SlipPlane sp0(&d, &s, Vector2d(0, 0));
-    SlipPlane sp1(&d, &s, Vector2d(1, 0));
-    SlipPlane sp2(&d, &s, Vector2d(2, 0));
 
-    s.addSlipPlane(&sp0);
-    s.addSlipPlane(&sp1);
-    s.addSlipPlane(&sp2);
+    SlipSystem ss0 = SlipSystem(1, 1);
+    d.addSlipSystem(&ss0);
 
-    SourcePoint src0 = SourcePoint(&d, &sp0, 0);
-    SourcePoint src1 = SourcePoint(&d, &sp0, 2);
+    SlipPlane sp0 = SlipPlane(&d, &ss0, {0, 0});
 
-    DislocationPoint disloc0(&d, &sp1, 1);
-    DislocationPoint disloc1(&d, &sp2, 2);
+    DislocationPoint dis0 = DislocationPoint(&d, &sp0, 0, 1,
+                                             sp0.getContainer<ObstaclePoint>().end(),
+                                             sp0.getContainer<ObstaclePoint>().rend());
+    DislocationPoint dis1 = DislocationPoint(&d, &sp0, 1, -1,
+                                             sp0.getContainer<ObstaclePoint>().end(),
+                                             sp0.getContainer<ObstaclePoint>().rend());
 
-    std::cout << disloc0.getTypeName() << "\n"; */
+    std::cout << "Dislocation point count: " << sp0.getContainer<DislocationPoint>().size() << "\n";
+    Vector<2> force, v2;
+    Vector<3> stress;
 
+    dis0.addForceContribution<DislocationPoint>(force, v2, stress);
 
-    //std::cout << disloc0.getForce().x << " " << disloc0.getForce().y << "\n";
+    std::cout << force[0] << " " << force[1] << "\n";
 
+    return 0;
 }
