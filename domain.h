@@ -17,11 +17,19 @@ namespace dd {
     class Domain : public HashedRegistrable<Point> {
 #define DOMAIN_NAME "Domain"
     private:
+        double propModulus;
+        double propPassionsRatio;
         std::vector<SlipSystem *> sSystems;
     public:
-        Domain(long long SlipPlaneCount);
+        Domain(const double & propModulus, const double & propPassionsRatio);
         Domain();
+
+
         void addSlipSystem(SlipSystem * ss);
+
+
+        double getModulus() const;
+        double getPassionsRatio() const;
 
         virtual string typeName() const { return DOMAIN_NAME; }
         static string staticTypeName() { return DOMAIN_NAME; }

@@ -19,7 +19,7 @@ typedef long long ll;
 
 int main() {
 
-    Domain d(1);
+    Domain d(70e-3/(8 * 2.0*::asin(1)*(1-.3*.3)), 1);
 
     SlipSystem ss0 = SlipSystem(1, 1);
     d.addSlipSystem(&ss0);

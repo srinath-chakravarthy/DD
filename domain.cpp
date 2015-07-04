@@ -10,11 +10,13 @@
 
 namespace dd {
 
-    Domain::Domain(long long slipSystemCount) {
-        this->sSystems.reserve(slipSystemCount);
-    }
+    Domain::Domain(const double & propModulus, const double & propPassionsRatio) :
+        propModulus(propModulus), propPassionsRatio(propPassionsRatio) { }
 
-    Domain::Domain() : Domain::Domain(0) { }
+    Domain::Domain() : Domain::Domain(0, 0) { }
+
+    double Domain::getModulus() const { return propModulus; }
+    double Domain::getPassionsRatio() const { return propPassionsRatio; }
 
     void Domain::addSlipSystem(SlipSystem * slipSystem) {
         sSystems.push_back(slipSystem);

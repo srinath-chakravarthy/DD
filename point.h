@@ -119,6 +119,7 @@ namespace dd {
         SlipPlane * getSlipPlane() const { return sPlaneRegistration->getTarget(); }
         Vector2d getLocation() const { return getSlipPlane()->getPointPosition(slipPlanePosition); }
 
+        virtual int getBurgersSign() const;
         virtual bool canMove() const = 0;
         virtual void move();
         virtual bool canSpawn() const = 0;

@@ -24,7 +24,7 @@ namespace dd {
                          list<Point *>::iterator nextObstacle,
                          list<Point *>::reverse_iterator prevObstacle);
 
-        int getBurgersSign() const { return burgersSign; }
+        virtual int getBurgersSign() const { return burgersSign; }
 
         virtual bool canMove() const { return true; }
         virtual void move();

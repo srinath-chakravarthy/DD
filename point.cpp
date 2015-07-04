@@ -21,14 +21,16 @@ namespace dd {
         return getSlipPlane()->getBurgersMagnitude();
     }
 
+    int Point::getBurgersSign() const { return 0; }
+
     Vector<2> Point::getBurgersVector() const {
         return getSlipPlane()->getBurgersVector();
     }
 
     void Point::addForceContribution(const Point * & p, Vector<2> & force,
                                      Vector<2> & v2, Vector<3> & stress) {
-        double thetaz = 1;
-        double factor = 70e-3/(8 * 2.0*::asin(1)*(1-.3*.3));
+        double thetaz = getDomain()->getModulus();
+        double factor = getDomain()->getPassionsRatio();
 
         double cutOff = 2 * std::abs(this->getBurgersMagnitude());
         Complex b(this->getBurgersVector());
@@ -73,14 +75,16 @@ namespace dd {
         double cos2i = ::cos(2. * this->getSlipPlane()->getAngle());
         double sin2i = ::sin(2. * this->getSlipPlane()->getAngle());
 
-        Complex bi = b * ((sig22 - sig11) * .5 * sin2i + sig12 * cos2i);
+        double bi = std::abs(getSlipPlane()->getBurgersMagnitude()) * getBurgersSign() *
+                    ((sig22 - sig11) * .5 * sin2i + sig12 * cos2i);
 
-        force += Vector<2>({bi.real(), b.imag()});
+        force += Vector<2>({bi, 0});
     }
 
     void Point::addForceContribution(const list<Point *> & points, Vector<2> & force,
                                      Vector<2> & v2, Vector<3> & stress) {
         for(const Point * p : points) {
+            if(p == this) continue;
             addForceContribution(p, force, v2, stress);
         }
     }
